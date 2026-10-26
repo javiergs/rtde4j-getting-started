@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.javiergs.rtde4j"},{"l":"com.javiergs.rtde4j.geometry"},{"l":"com.javiergs.rtde4j.protocol"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.javiergs.rtde4j"},{"l":"com.javiergs.rtde4j.geometry"},{"l":"com.javiergs.rtde4j.model"},{"l":"com.javiergs.rtde4j.protocol"}];updateSearchResults();
