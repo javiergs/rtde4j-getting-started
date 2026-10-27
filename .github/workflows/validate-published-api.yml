@@ -1,0 +1,29 @@
+name: Validate published RTDE4J API
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  compile-student-examples:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+          cache-dependency-path: validation/pom.xml
+      - name: Compile against published Maven artifact only
+        working-directory: validation
+        run: mvn -B -ntp -U clean compile
+      - name: Check binary API signatures
+        working-directory: validation
+        run: |
+          JAR="$HOME/.m2/repository/com/javiergs/rtde4j/1.0.0/rtde4j-1.0.0.jar"
+          test -f "$JAR"
+          jar tf "$JAR" | grep -E 'com/javiergs/rtde4j/(RtdeClient|ReconnectingRtdeMonitor|URScriptClient)\.class'
+          javap -classpath "$JAR" com.javiergs.rtde4j.RtdeClient com.javiergs.rtde4j.ReconnectingRtdeMonitor com.javiergs.rtde4j.URScriptClient
