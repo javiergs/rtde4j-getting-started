@@ -6,8 +6,11 @@
 
 **RTDE4J** is a Java library for communicating with Universal Robots controllers using the **Real-Time Data Exchange (RTDE)** protocol. This repository hosts the **getting-started documentation and generated JavaDoc**. Library source code and development take place in [jgs-lab/api-rtde4j](https://github.com/jgs-lab/api-rtde4j).
 
+<img width="1672" height="941" alt="248178F4-261D-46F8-A429-27AF0DE92670" src="https://github.com/user-attachments/assets/87dd8116-1593-484c-bd17-e4840d542ae5" />
+
 > [!NOTE]
 > **Development status:** The core `RtdeClient` currently supports RTDE packet framing and querying the controller software version. Full recipe negotiation, continuous input/output streaming, and robot-motion commands are **not implemented** by this client. The repository also contains migrated robot-state and kinematics classes; do not assume they are integrated into the core client or hardware-validated.
+
 
 ## Requirements
 
