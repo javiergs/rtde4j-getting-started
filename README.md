@@ -32,6 +32,8 @@ RTDE4J uses the Maven coordinates `com.javiergs:rtde4j:1.0.0`. Version **1.0.0 i
 
 Maven downloads RTDE4J automatically when you build your project. You do **not** need to clone or install the private implementation repository.
 
+**New student?** Follow the [Student Quick Start](docs/student-quick-start.md) for a simulator-first walkthrough and runnable Java examples. The public repository can be cloned without access to the private library source.
+
 ## Getting started
 
 ### First connection: read controller version
@@ -75,7 +77,7 @@ The JavaDoc in `docs/javadoc/` is **automatically published** from the library's
 
 ## Examples and guides
 
-This repository currently contains the generated JavaDoc and this getting-started guide; **standalone Maven example projects have not yet been added**. The private library repository includes internal examples and offline packet tests.
+This public repository includes a standalone Maven project and three runnable examples in `src/main/java/examples/`: `ReadVersion`, `ListenToRobot`, and `SendMessage` (URSim only). Start with the [Student Quick Start](docs/student-quick-start.md). No private source access is needed.
 
 ## Safety and scope
 
