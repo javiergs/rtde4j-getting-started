@@ -3,7 +3,7 @@
 This guide introduces **RTDE4J** using a Universal Robots simulator before any physical robot. The library implementation is maintained privately; this public repository contains documentation and examples. You do **not** need access to the private source repository.
 
 > [!IMPORTANT]
-> **Artifact check:** Before starting, confirm that `com.javiergs:rtde4j:1.0.0` is available in the configured Maven repository and contains `RtdeClient`, `ReconnectingRtdeMonitor`, and `URScriptClient`. The current source project declares version 1.0.0, but that alone does **not** establish that these APIs are published to Maven Central. If dependency resolution fails, ask the instructor for the correct published version; do not clone the private library.
+> **Published dependency:** `com.javiergs:rtde4j:1.0.0` is available on Maven Central. You do **not** need access to the private implementation repository.
 >
 > **Safety:** Work in **URSim only** for these experiments. Sending URScript can move a robot. Do not connect these exercises to physical hardware without instructor authorization and an appropriate safety assessment.
 
@@ -24,7 +24,15 @@ If using Docker port publishing, ensure these ports are exposed **only as needed
 
 ## 2. Create a Maven project
 
-Create a standard Maven Java project with `src/main/java` and a `pom.xml` containing the dependency below. Set your compiler release to 21.
+Clone this public repository and compile its runnable examples (the root `pom.xml` already declares the Maven Central dependency):
+
+```bash
+git clone https://github.com/javiergs/rtde4j-getting-started.git
+cd rtde4j-getting-started
+mvn clean compile
+```
+
+To build an independent project later, add this dependency to your own `pom.xml`:
 
 ```xml
 <dependency>
@@ -34,7 +42,7 @@ Create a standard Maven Java project with `src/main/java` and a `pom.xml` contai
 </dependency>
 ```
 
-Replace the version if the instructor identifies a different published release. The snippets below can be placed in separate Java classes with a `main` method. Use the simulator's reachable IP address instead of `192.168.0.10`.
+Replace the version if the instructor identifies a different published release. Run the included examples from the repository root. Replace `URSIM_HOST` with the reachable simulator IP or hostname. The default `127.0.0.1` works only when URSim is reachable on your local computer.
 
 ## 3. Experiment A — connect and read the controller version
 
@@ -48,6 +56,12 @@ public class ReadVersion {
         }
     }
 }
+```
+
+Run:
+
+```bash
+mvn exec:java -Dexec.mainClass=examples.ReadVersion -Dexec.args=URSIM_HOST
 ```
 
 This is a connectivity test; it does **not** start streaming or command robot motion.
@@ -83,6 +97,12 @@ public class ListenToRobot {
 }
 ```
 
+Run the included example:
+
+```bash
+mvn exec:java -Dexec.mainClass=examples.ListenToRobot -Dexec.args=URSIM_HOST
+```
+
 Listener callbacks run on the monitoring thread, not on a Swing event-dispatch thread. Keep callbacks short; update graphical interfaces through the appropriate UI thread. Do not call `readSample()` concurrently with background monitoring.
 
 For a longer-running application, examine `ReconnectingRtdeMonitor`, which can re-establish a read-only monitoring session after I/O failures and publishes `connection_state` and `robot_sample` events.
@@ -101,6 +121,12 @@ public class SendScript {
         }
     }
 }
+```
+
+Run the included non-motion example **only against URSim** (the `SIMULATOR` argument is an explicit acknowledgement):
+
+```bash
+mvn exec:java -Dexec.mainClass=examples.SendMessage -Dexec.args="URSIM_HOST SIMULATOR"
 ```
 
 `sendCommand` accepts **one printable-ASCII line**. Successful return means the command bytes were written to the socket; it does **not** confirm acceptance, execution, or completion. Inspect the simulator's logs or interface to determine what happened.
@@ -136,4 +162,4 @@ For each experiment, document:
 If instructions are unclear or an example needs correction, fork this **public** repository, edit the guide or add an example, and open a pull request. Describe how you tested your change. Library implementation changes belong in the private project and require separate instructor review.
 
 > [!NOTE]
-> The current public README predates some implemented source features. This guide reflects the current library source API, but availability in the **published Maven artifact** and compatibility with a particular URSim installation must be verified before treating these examples as tested end-to-end.
+> These examples compile against the published Maven artifact in CI. Actual network connectivity and behavior still depend on your URSim installation and must be tested separately.
