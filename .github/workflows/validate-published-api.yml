@@ -16,7 +16,11 @@ jobs:
           distribution: temurin
           java-version: '21'
           cache: maven
-          cache-dependency-path: validation/pom.xml
+          cache-dependency-path: |
+            pom.xml
+            validation/pom.xml
+      - name: Compile public runnable examples against Maven Central
+        run: mvn -B -ntp -U clean compile
       - name: Compile against published Maven artifact only
         working-directory: validation
         run: mvn -B -ntp -U clean compile
