@@ -4,7 +4,7 @@
 ![Version 1.0.0](https://img.shields.io/badge/version-1.0.0-green)
 [![Java CI](https://github.com/jgs-lab/api-rtde4j/actions/workflows/build.yml/badge.svg)](https://github.com/jgs-lab/api-rtde4j/actions/workflows/build.yml)
 
-**RTDE4J** is a Java library for communicating with Universal Robots controllers using the **Real-Time Data Exchange (RTDE)** protocol. This repository hosts the **getting-started documentation and generated JavaDoc**. Library source code and development take place in [jgs-lab/api-rtde4j](https://github.com/jgs-lab/api-rtde4j).
+**RTDE4J** is a Java library for communicating with Universal Robots controllers using the **Real-Time Data Exchange (RTDE)** protocol. This repository hosts the **getting-started documentation and generated JavaDoc**. Library source code and development remain in the private `jgs-lab/api-rtde4j` repository.
 
 <img width="1672" height="941" alt="248178F4-261D-46F8-A429-27AF0DE92670" src="https://github.com/user-attachments/assets/87dd8116-1593-484c-bd17-e4840d542ae5" />
 
@@ -20,7 +20,7 @@
 
 ## Install
 
-RTDE4J uses the Maven coordinates `com.javiergs:rtde4j:1.0.0`. **Check artifact availability before using this dependency**; the version in the source project does not itself guarantee publication to Maven Central.
+RTDE4J uses the Maven coordinates `com.javiergs:rtde4j:1.0.0`. Version **1.0.0 is published on Maven Central** and can be used directly as a Maven dependency.
 
 ```xml
 <dependency>
@@ -30,14 +30,7 @@ RTDE4J uses the Maven coordinates `com.javiergs:rtde4j:1.0.0`. **Check artifact 
 </dependency>
 ```
 
-Until a published artifact is available, clone the [library repository](https://github.com/jgs-lab/api-rtde4j) and build it locally:
-
-```bash
-git clone https://github.com/jgs-lab/api-rtde4j.git
-cd api-rtde4j
-mvn verify
-mvn install
-```
+Maven downloads RTDE4J automatically when you build your project. You do **not** need to clone or install the private implementation repository.
 
 ## Getting started
 
@@ -70,19 +63,19 @@ Replace `192.168.0.10` with your robot or simulator address. You can also specif
 | Geometry | `Vector3`, `Matrix3x3`, `Matrix4` | Vector and transformation-matrix calculations |
 | Legacy/migrated client | `RTDEClient` | Separate implementation migrated from TULIP; not interchangeable with `RtdeClient` |
 
-The two client classes have different APIs and maturity levels. **Use `RtdeClient` for the introductory connection example**; consult the [JavaDoc](docs/javadoc/index.html) and source before using `RTDEClient`.
+The two client classes have different APIs and maturity levels. **Use `RtdeClient` for the introductory connection example**; consult the [public JavaDoc](docs/javadoc/index.html) before using `RTDEClient`.
 
 ## API documentation
 
 - **[Generated JavaDoc](docs/javadoc/index.html)** — browsable reference for the Java packages and public API.
-- **[RTDE4J source and issues](https://github.com/jgs-lab/api-rtde4j)** — implementation, tests, and contributions.
+- **[RTDE4J implementation repository](https://github.com/jgs-lab/api-rtde4j)** — private development repository; implementation source is not publicly distributed.
 - **[Universal Robots RTDE protocol guide](https://docs.universal-robots.com/tutorials/communication-protocol-tutorials/rtde-guide.html)** — protocol behavior and message definitions.
 
 The JavaDoc in `docs/javadoc/` is **automatically published** from the library's `main` branch by GitHub Actions. Edit JavaDoc comments in the source repository, not the generated HTML here.
 
 ## Examples and guides
 
-This repository currently contains the generated JavaDoc and this getting-started guide; **standalone Maven example projects have not yet been added**. The library repository includes an example under `src/test/java/com/javiergs/rtde4j/Example.java` and offline packet tests.
+This repository currently contains the generated JavaDoc and this getting-started guide; **standalone Maven example projects have not yet been added**. The private library repository includes internal examples and offline packet tests.
 
 ## Safety and scope
 
