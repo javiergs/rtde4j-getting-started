@@ -84,3 +84,7 @@ This public repository includes a standalone Maven project and three runnable ex
 RTDE connects to industrial equipment. Test connectivity and data handling with a simulator or a safely configured controller before using real hardware. Do not use experimental software to command robot motion without appropriate risk assessment and safety controls.
 
 RTDE4J is an independent project; it is **not an official Universal Robots SDK** and is not endorsed by Universal Robots.
+
+## Contributing
+
+Contributions to public examples, tutorials, and documentation are welcome through pull requests. See [CONTRIBUTING.md](CONTRIBUTING.md) for the fork-and-PR workflow, testing expectations, simulator safety, and maintainer review. The RTDE4J implementation source remains private.
