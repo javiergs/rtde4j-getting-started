@@ -3,6 +3,7 @@
 
 ![Java 21+](https://img.shields.io/badge/Java-21%2B-blue)
 ![Version 1.0.0](https://img.shields.io/badge/version-1.0.0-green)
+[![Java CI](https://github.com/javiergs/rtde4j-getting-started/actions/workflows/java-ci.yml/badge.svg)](https://github.com/javiergs/rtde4j-getting-started/actions/workflows/java-ci.yml)
 
 **RTDE4J** is a Java library for communicating with Universal Robots controllers using the **Real-Time Data Exchange (RTDE)** protocol. This repository hosts the **getting-started documentation and generated JavaDoc**. The library is distributed through Maven Central; this public repository provides learning materials and examples.
 
