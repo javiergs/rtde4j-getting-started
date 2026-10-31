@@ -2,7 +2,7 @@
 
 Thank you for helping improve the public examples, tutorials, and documentation for **RTDE4J**.
 
-This repository is a **public learning and examples project**. The RTDE4J library implementation is maintained separately in a **private repository**. You do **not** need access to the private source to contribute: use the published `com.javiergs:rtde4j:1.0.0` Maven dependency.
+This repository is a **public learning and examples project**. Use the published `com.javiergs:rtde4j:1.0.0` Maven dependency.
 
 ## What to contribute
 
@@ -17,7 +17,7 @@ We welcome:
 
 For robot-specific applications or research prototypes developed by the ROVER team, use the team's [ASU26-ROVER repository](https://github.com/calhci/ASU26-ROVER) and its accepted-story/task workflow. Propose an example here when it is general, documented, and reproducible for other learners.
 
-**Do not submit the private RTDE4J implementation here.** If you identify a missing library capability, describe the use case and expected API behavior in an issue or PR; maintainers will evaluate implementation changes separately.
+**Do not submit library implementation code here.** If you identify a missing library capability, describe the use case and expected API behavior in an issue or PR; maintainers will evaluate implementation changes separately.
 
 ## Propose a change
 
