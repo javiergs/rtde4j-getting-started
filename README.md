@@ -1,17 +1,15 @@
 # Getting Started with RTDE4J
 
-
 ![Java 21+](https://img.shields.io/badge/Java-21%2B-blue)
 ![Version 1.0.0](https://img.shields.io/badge/version-1.0.0-green)
 [![Java CI](https://github.com/javiergs/rtde4j-getting-started/actions/workflows/java-ci.yml/badge.svg)](https://github.com/javiergs/rtde4j-getting-started/actions/workflows/java-ci.yml)
 
-**RTDE4J** is a Java library for communicating with Universal Robots controllers using the **Real-Time Data Exchange (RTDE)** protocol. This repository hosts the **getting-started documentation and generated JavaDoc**. The library is distributed through Maven Central; this public repository provides learning materials and examples.
+**RTDE4J** is a Java library for communicating with Universal Robots controllers. Use this repository to learn RTDE controller-version queries and explore robot-state concepts using Java 21, Maven, and URSim. The library is published on Maven Central.
 
 <img width="1672" height="941" alt="RTDE4J overview illustration" src="https://github.com/user-attachments/assets/87dd8116-1593-484c-bd17-e4840d542ae5" />
 
 > [!NOTE]
-> **Development status:** The core `RtdeClient` currently supports RTDE packet framing and querying the controller software version. Full recipe negotiation, continuous input/output streaming, and robot-motion commands are **not implemented** by this client. The repository also contains migrated robot-state and kinematics classes; do not assume they are integrated into the core client or hardware-validated.
-
+> **Development status:** The core `RtdeClient` currently supports RTDE packet framing and querying the controller software version. Full recipe negotiation, continuous input/output streaming, and robot-motion commands are **not implemented** by this client. The library includes robot-state and kinematics classes that are not necessarily integrated into the core client or validated on hardware.
 
 ## Requirements
 
@@ -19,7 +17,7 @@
 - A Universal Robots controller or simulator accessible on the network
 - RTDE service on TCP port **30004** (default)
 
-## Install
+## Install with Maven
 
 RTDE4J uses the Maven coordinates `com.javiergs:rtde4j:1.0.0`. Version **1.0.0 is published on Maven Central** and can be used directly as a Maven dependency.
 
@@ -33,9 +31,9 @@ RTDE4J uses the Maven coordinates `com.javiergs:rtde4j:1.0.0`. Version **1.0.0 i
 
 Maven downloads RTDE4J automatically when you build your project. You do **not** need to build the library from source.
 
-**New student?** Follow the [Student Quick Start](docs/student-quick-start.md) for a simulator-first walkthrough and runnable Java examples. The public repository can be cloned without access to the private library source.
+**New student?** Follow the [Student Quick Start](docs/student-quick-start.md) for a simulator-first walkthrough and runnable Java examples. The examples use the published Maven dependency.
 
-## Getting started
+## Quick start
 
 ### First connection: read controller version
 
@@ -57,7 +55,7 @@ public class Main {
 
 Replace `192.168.0.10` with your robot or simulator address. You can also specify a port using `RtdeClient.connect(host, port)`. The controller must be reachable, and network or protocol errors may raise `IOException`.
 
-## What's in the library?
+## Library components
 
 | Component | Classes | Purpose |
 | --- | --- | --- |
@@ -73,11 +71,11 @@ The two client classes have different APIs and maturity levels. **Use `RtdeClien
 - **[Generated JavaDoc](docs/javadoc/index.html)** — browsable reference for the Java packages and public API.
 - **[Universal Robots RTDE protocol guide](https://docs.universal-robots.com/tutorials/communication-protocol-tutorials/rtde-guide.html)** — protocol behavior and message definitions.
 
-The JavaDoc in `docs/javadoc/` is **automatically published** from the library's `main` branch by GitHub Actions. Edit JavaDoc comments in the source repository, not the generated HTML here.
+The generated JavaDoc is published automatically; its HTML is not intended for manual editing.
 
 ## Examples and guides
 
-This public repository includes a standalone Maven project and three runnable examples in `src/main/java/examples/`: `ReadVersion`, `ListenToRobot`, and `SendMessage` (URSim only). Start with the [Student Quick Start](docs/student-quick-start.md). No private source access is needed.
+This public repository includes a standalone Maven project and three runnable examples in `src/main/java/examples/`: `ReadVersion`, `ListenToRobot`, and `SendMessage` (URSim only). Start with the [Student Quick Start](docs/student-quick-start.md). 
 
 ## Safety and scope
 
@@ -85,6 +83,11 @@ RTDE connects to industrial equipment. Test connectivity and data handling with 
 
 RTDE4J is an independent project; it is **not an official Universal Robots SDK** and is not endorsed by Universal Robots.
 
-## Contributing
+## Troubleshooting
 
-Contributions to public examples, tutorials, and documentation are welcome through pull requests. See [CONTRIBUTING.md](CONTRIBUTING.md) for the fork-and-PR workflow, testing expectations, simulator safety, and maintainer review. The RTDE4J implementation source remains private.
+- **Connection refused or timed out:** Confirm URSim or the controller is running and reachable at the configured IP address.
+- **Wrong port:** RTDE normally uses TCP port `30004`; URScript commands use a different interface, normally port `30002`.
+- **Build failure:** Confirm `mvn -version` reports Java 21 and Maven can reach Maven Central.
+- **No streaming data:** The introductory `RtdeClient` does not yet support continuous recipe-based RTDE streaming; see the development-status note above.
+
+For contribution instructions, see the repository's GitHub **Contributing** guidance.
