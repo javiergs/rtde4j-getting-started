@@ -31,6 +31,8 @@ RTDE4J uses the Maven coordinates `com.javiergs:rtde4j:1.0.0`. Version **1.0.0 i
 
 Maven downloads RTDE4J automatically when you build your project. You do **not** need to build the library from source.
 
+**Need a simulator?** Follow the [URSim Docker Setup Guide](docs/ursim-setup.md) to start a local UR3e simulator.
+
 **New student?** Follow the [Student Quick Start](docs/student-quick-start.md) for a simulator-first walkthrough and runnable Java examples. The examples use the published Maven dependency.
 
 ## Quick start

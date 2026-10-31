@@ -9,7 +9,7 @@ This guide introduces **RTDE4J** using a Universal Robots simulator before any p
 
 ## 1. Prepare your environment
 
-Install Java **21+**, Maven, and a working Universal Robots **URSim** instance. The simulator may run in Docker or another instructor-provided environment. Follow that environment's instructions to start the robot controller and enable its remote interfaces.
+Install Java **21+**, Maven, and a working Universal Robots **URSim** instance. For a local Docker installation, follow the [URSim Setup Guide](ursim-setup.md). The simulator may run in Docker or another instructor-provided environment. Follow that environment's instructions to start the robot controller and enable its remote interfaces.
 
 Make the simulator reachable from the Java program. You will need its **host/IP address**, which depends on whether Java runs on your host computer, in another container, or on the same Docker network.
 
