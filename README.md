@@ -1,14 +1,12 @@
 # Getting Started with RTDE4J
 
-[Contributing](CONTRIBUTING.md) · [Code of Conduct](CODE_OF_CONDUCT.md) · [Accessibility](ACCESSIBILITY.md)
 
 ![Java 21+](https://img.shields.io/badge/Java-21%2B-blue)
 ![Version 1.0.0](https://img.shields.io/badge/version-1.0.0-green)
-[![Java CI](https://github.com/jgs-lab/api-rtde4j/actions/workflows/build.yml/badge.svg)](https://github.com/jgs-lab/api-rtde4j/actions/workflows/build.yml)
 
-**RTDE4J** is a Java library for communicating with Universal Robots controllers using the **Real-Time Data Exchange (RTDE)** protocol. This repository hosts the **getting-started documentation and generated JavaDoc**. Library source code and development remain in the private `jgs-lab/api-rtde4j` repository.
+**RTDE4J** is a Java library for communicating with Universal Robots controllers using the **Real-Time Data Exchange (RTDE)** protocol. This repository hosts the **getting-started documentation and generated JavaDoc**. The library is distributed through Maven Central; this public repository provides learning materials and examples.
 
-<img width="1672" height="941" alt="248178F4-261D-46F8-A429-27AF0DE92670" src="https://github.com/user-attachments/assets/87dd8116-1593-484c-bd17-e4840d542ae5" />
+<img width="1672" height="941" alt="RTDE4J overview illustration" src="https://github.com/user-attachments/assets/87dd8116-1593-484c-bd17-e4840d542ae5" />
 
 > [!NOTE]
 > **Development status:** The core `RtdeClient` currently supports RTDE packet framing and querying the controller software version. Full recipe negotiation, continuous input/output streaming, and robot-motion commands are **not implemented** by this client. The repository also contains migrated robot-state and kinematics classes; do not assume they are integrated into the core client or hardware-validated.
@@ -32,7 +30,7 @@ RTDE4J uses the Maven coordinates `com.javiergs:rtde4j:1.0.0`. Version **1.0.0 i
 </dependency>
 ```
 
-Maven downloads RTDE4J automatically when you build your project. You do **not** need to clone or install the private implementation repository.
+Maven downloads RTDE4J automatically when you build your project. You do **not** need to build the library from source.
 
 **New student?** Follow the [Student Quick Start](docs/student-quick-start.md) for a simulator-first walkthrough and runnable Java examples. The public repository can be cloned without access to the private library source.
 
@@ -72,7 +70,6 @@ The two client classes have different APIs and maturity levels. **Use `RtdeClien
 ## API documentation
 
 - **[Generated JavaDoc](docs/javadoc/index.html)** — browsable reference for the Java packages and public API.
-- **[RTDE4J implementation repository](https://github.com/jgs-lab/api-rtde4j)** — private development repository; implementation source is not publicly distributed.
 - **[Universal Robots RTDE protocol guide](https://docs.universal-robots.com/tutorials/communication-protocol-tutorials/rtde-guide.html)** — protocol behavior and message definitions.
 
 The JavaDoc in `docs/javadoc/` is **automatically published** from the library's `main` branch by GitHub Actions. Edit JavaDoc comments in the source repository, not the generated HTML here.
