@@ -93,3 +93,11 @@ RTDE4J is an independent project; it is **not an official Universal Robots SDK**
 - **No streaming data:** The introductory `RtdeClient` does not yet support continuous recipe-based RTDE streaming; see the development-status note above.
 
 For contribution instructions, see the repository's GitHub **Contributing** guidance.
+
+## Feedback
+
+[Open an issue](https://github.com/javiergs/rtde4j-getting-started/issues/new/choose) to report an example bug, suggest a feature, or flag unclear documentation.
+
+For bugs, include the example or guide section, the command you ran, and what you expected and observed. Include your operating system and Java and Maven versions when relevant. For connection problems, include whether you used URSim or a physical controller and the simulator or PolyScope version, if known.
+
+For installer, desktop interface, or digital twin issues, use [ROVER Desktop issues](https://github.com/javiergs/rover-desktop/issues/new/choose).
